@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import GeneralContext from "./GeneralContext";
 
 const Funds = () => {
     const [funds, setFunds] = useState({
-        availableMargin: 104043.1,
-        usedMargin: 3757.3,
-        availableCash: 104043.1,
-        openingBalance: 104043.1,
+        availableMargin: 100000.0,
+        usedMargin: 0.0,
+        availableCash: 100000.0,
+        openingBalance: 100000.0,
         payin: 100000.0,
         span: 0.0,
         deliveryMargin: 0.0,
@@ -24,8 +24,8 @@ const Funds = () => {
     const generalContext = useContext(GeneralContext);
 
     const fetchFunds = () => {
-        axios
-            .get("http://localhost:3002/funds")
+        api
+            .get("/funds")
             .then((res) => {
                 if (res.data) setFunds(res.data);
             })
@@ -49,8 +49,8 @@ const Funds = () => {
             return;
         }
 
-        axios
-            .post("http://localhost:3002/funds/update", {
+        api
+            .post("/funds/update", {
                 amount: amt,
                 type: modalMode,
             })
@@ -59,34 +59,16 @@ const Funds = () => {
                     setFunds(res.data.funds);
                 }
                 setMessage(`Successfully ${modalMode === "ADD" ? "added" : "withdrawn"} ₹${amt.toLocaleString("en-IN")}!`);
+                generalContext.triggerOrderRefresh();
                 setTimeout(() => {
                     setModalMode(null);
                     setAmountInput("");
                     setMessage("");
                 }, 1000);
             })
-            .catch(() => {
-                // In-memory local update
-                if (modalMode === "ADD") {
-                    setFunds((prev) => ({
-                        ...prev,
-                        availableMargin: prev.availableMargin + amt,
-                        availableCash: prev.availableCash + amt,
-                        payin: prev.payin + amt,
-                    }));
-                } else {
-                    setFunds((prev) => ({
-                        ...prev,
-                        availableMargin: prev.availableMargin - amt,
-                        availableCash: prev.availableCash - amt,
-                    }));
-                }
-                setMessage(`Successfully ${modalMode === "ADD" ? "added" : "withdrawn"} ₹${amt.toLocaleString("en-IN")}!`);
-                setTimeout(() => {
-                    setModalMode(null);
-                    setAmountInput("");
-                    setMessage("");
-                }, 1000);
+            .catch((err) => {
+                const errMsg = err.response?.data?.error || "Failed to update funds";
+                setMessage(errMsg);
             });
     };
 

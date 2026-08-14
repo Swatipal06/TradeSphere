@@ -1,22 +1,22 @@
 import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import GeneralContext from "./GeneralContext";
 
 const Summary = () => {
     const [holdings, setHoldings] = useState([]);
-    const [funds, setFunds] = useState({ availableMargin: 104043.1, usedMargin: 3757.3 });
+    const [funds, setFunds] = useState({ availableMargin: 100000, usedMargin: 0 });
     const generalContext = useContext(GeneralContext);
 
     useEffect(() => {
-        axios
-            .get("http://localhost:3002/allHoldings")
+        api
+            .get("/allHoldings")
             .then((res) => {
                 setHoldings(res.data || []);
             })
             .catch(() => {});
 
-        axios
-            .get("http://localhost:3002/funds")
+        api
+            .get("/funds")
             .then((res) => {
                 if (res.data) setFunds(res.data);
             })

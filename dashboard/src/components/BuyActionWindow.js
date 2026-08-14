@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import axios from "axios";
+import api from "../utils/api";
 import GeneralContext from "./GeneralContext";
 import "./BuyActionWindow.css";
 
@@ -11,6 +11,7 @@ const BuyActionWindow = ({ uid, price = 0, initialMode = "BUY" }) => {
     const [stockPrice, setStockPrice] = useState(price || 100.0);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [statusMsg, setStatusMsg] = useState("");
+    const [isError, setIsError] = useState(false);
 
     const generalContext = useContext(GeneralContext);
 
@@ -19,6 +20,8 @@ const BuyActionWindow = ({ uid, price = 0, initialMode = "BUY" }) => {
             setStockPrice(price);
         }
         setMode(initialMode);
+        setStatusMsg("");
+        setIsError(false);
     }, [uid, price, initialMode]);
 
     const marginRequired = (Number(stockQuantity) * Number(stockPrice)).toFixed(2);
@@ -27,9 +30,10 @@ const BuyActionWindow = ({ uid, price = 0, initialMode = "BUY" }) => {
         if (e) e.preventDefault();
         setIsSubmitting(true);
         setStatusMsg("");
+        setIsError(false);
 
         try {
-            await axios.post("http://localhost:3002/newOrder", {
+            const res = await api.post("/newOrder", {
                 name: uid,
                 qty: Number(stockQuantity),
                 price: Number(stockPrice),
@@ -37,19 +41,18 @@ const BuyActionWindow = ({ uid, price = 0, initialMode = "BUY" }) => {
                 product: productType,
             });
 
-            setStatusMsg("Order executed successfully!");
+            setIsError(false);
+            setStatusMsg(res.data?.message || "Order executed successfully!");
             generalContext.triggerOrderRefresh();
 
             setTimeout(() => {
                 generalContext.closeBuyWindow();
-            }, 700);
+            }, 900);
         } catch (err) {
             console.error("Order error:", err);
-            setStatusMsg("Simulated order recorded!");
-            generalContext.triggerOrderRefresh();
-            setTimeout(() => {
-                generalContext.closeBuyWindow();
-            }, 700);
+            setIsError(true);
+            const serverError = err.response?.data?.error || "Order execution failed. Please check inputs.";
+            setStatusMsg(serverError);
         } finally {
             setIsSubmitting(false);
         }
@@ -168,7 +171,23 @@ const BuyActionWindow = ({ uid, price = 0, initialMode = "BUY" }) => {
                         </label>
                     </div>
 
-                    {statusMsg && <div className="order-status-msg">{statusMsg}</div>}
+                    {statusMsg && (
+                        <div
+                            className={`order-status-msg ${isError ? "error" : "success"}`}
+                            style={{
+                                color: isError ? "#dc2626" : "#16a34a",
+                                background: isError ? "#fef2f2" : "#f0fdf4",
+                                border: `1px solid ${isError ? "#fecaca" : "#bbf7d0"}`,
+                                padding: "8px 12px",
+                                borderRadius: "6px",
+                                marginTop: "12px",
+                                fontSize: "0.85rem",
+                                fontWeight: 500,
+                            }}
+                        >
+                            {statusMsg}
+                        </div>
+                    )}
                 </div>
 
                 {/* Footer Controls */}

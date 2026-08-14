@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 
+const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
+const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
+
 function Signup() {
     const [isLogin, setIsLogin] = useState(false);
     const [formData, setFormData] = useState({
@@ -21,46 +24,50 @@ function Signup() {
         setStatusMessage(null);
 
         const endpoint = isLogin
-            ? "http://localhost:3002/login"
-            : "http://localhost:3002/signup";
+            ? `${API_BASE_URL}/login`
+            : `${API_BASE_URL}/signup`;
+
+        const payload = isLogin
+            ? { email: formData.email, password: formData.password }
+            : { fullName: formData.fullName, email: formData.email, mobile: formData.mobile, password: formData.password };
 
         try {
             const res = await fetch(endpoint, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(payload),
             });
 
+            const data = await res.json();
+
             if (res.ok) {
-                const data = await res.json();
+                if (data.token) {
+                    sessionStorage.setItem("ts_token", data.token);
+                    sessionStorage.setItem("ts_user", JSON.stringify(data.user));
+                    localStorage.setItem("ts_token", data.token);
+                    localStorage.setItem("ts_user", JSON.stringify(data.user));
+                }
+
                 setStatusMessage({
                     type: "success",
                     text: isLogin
-                        ? `Welcome back, ${data.user?.fullName || "Trader"}! Redirecting to dashboard...`
-                        : "Account created successfully! Redirecting to dashboard...",
+                        ? `Welcome back, ${data.user?.name || "Trader"}! Opening dashboard...`
+                        : "Account created successfully! Opening dashboard...",
                 });
                 setTimeout(() => {
-                    window.location.href = "http://localhost:3001";
-                }, 1500);
-            } else {
-                const errData = await res.json().catch(() => ({}));
-                setStatusMessage({
-                    type: "warning",
-                    text: errData.message || "Proceeding to TradeSphere Dashboard...",
-                });
-                setTimeout(() => {
-                    window.location.href = "http://localhost:3001";
+                    window.location.href = DASHBOARD_URL;
                 }, 1200);
+            } else {
+                setStatusMessage({
+                    type: "danger",
+                    text: data.error || "Authentication failed. Please check your credentials.",
+                });
             }
         } catch (err) {
-            // Fallback for offline mode
             setStatusMessage({
-                type: "success",
-                text: "Virtual Account ready! Opening your TradeSphere Dashboard...",
+                type: "danger",
+                text: "Cannot connect to server. Please check your network connection.",
             });
-            setTimeout(() => {
-                window.location.href = "http://localhost:3001";
-            }, 1200);
         } finally {
             setIsLoading(false);
         }
@@ -69,11 +76,11 @@ function Signup() {
     const handleDemoLogin = () => {
         setStatusMessage({
             type: "success",
-            text: "Logging in as Demo Trader with ₹1,00,000 virtual margin...",
+            text: "Opening TradeSphere Dashboard...",
         });
         setTimeout(() => {
-            window.location.href = "http://localhost:3001";
-        }, 1000);
+            window.location.href = DASHBOARD_URL;
+        }, 800);
     };
 
     return (

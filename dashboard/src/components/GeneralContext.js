@@ -7,6 +7,7 @@ const GeneralContext = React.createContext({
     closeBuyWindow: () => { },
     triggerOrderRefresh: () => { },
     refreshCounter: 0,
+    logout: () => { },
 });
 
 export const GeneralContextProvider = (props) => {
@@ -39,6 +40,12 @@ export const GeneralContextProvider = (props) => {
         setRefreshCounter((prev) => prev + 1);
     };
 
+    const logout = () => {
+        sessionStorage.removeItem("ts_token");
+        sessionStorage.removeItem("ts_user");
+        window.location.reload();
+    };
+
     return (
         <GeneralContext.Provider
             value={{
@@ -47,6 +54,7 @@ export const GeneralContextProvider = (props) => {
                 closeBuyWindow: handleCloseWindow,
                 triggerOrderRefresh,
                 refreshCounter,
+                logout,
             }}
         >
             {props.children}

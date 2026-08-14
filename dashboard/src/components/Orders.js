@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import api from "../utils/api";
 import GeneralContext from "./GeneralContext";
 
 const Orders = () => {
@@ -10,8 +10,8 @@ const Orders = () => {
 
     const fetchOrders = () => {
         setLoading(true);
-        axios
-            .get("http://localhost:3002/allOrders")
+        api
+            .get("/allOrders")
             .then((res) => {
                 setAllOrders(res.data || []);
                 setLoading(false);
