@@ -8,11 +8,11 @@ function Navbar() {
             style={{ backgroundColor: "#FFF" }}
         >
             <div className="container p-2">
-                <Link className="navbar-brand" to="/">
+                <Link className="navbar-brand d-flex align-items-center" to="/">
                     <img
                         src="media/images/logo.svg"
-                        style={{ width: "25%" }}
-                        alt="Logo"
+                        style={{ height: "36px", width: "auto" }}
+                        alt="TradeSphere Logo"
                     />
                 </Link>
                 <button
@@ -27,35 +27,43 @@ function Navbar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <form className="d-flex ms-auto" role="search">
-                        <ul className="navbar-nav mb-lg-0">
-                            <li className="nav-item">
-                                <Link className="nav-link active" aria-current="page" to="/signup">
-                                    Signup
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" to="/about">
-                                    About
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" to="/product">
-                                    Product
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" to="/pricing">
-                                    Pricing
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link active" to="/support">
-                                    Support
-                                </Link>
-                            </li>
-                        </ul>
-                    </form>
+                    <ul className="navbar-nav ms-auto align-items-center mb-2 mb-lg-0 gap-2">
+                        <li className="nav-item">
+                            <Link className="nav-link text-muted" to="/signup">
+                                Signup
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-muted" to="/about">
+                                About
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-muted" to="/product">
+                                Products
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-muted" to="/pricing">
+                                Pricing
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link text-muted" to="/support">
+                                Support
+                            </Link>
+                        </li>
+                        <li className="nav-item ms-lg-2">
+                            <a
+                                className="btn btn-primary btn-sm px-3 fw-semibold shadow-sm"
+                                href="http://localhost:3001"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                Open Dashboard 🚀
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </nav>

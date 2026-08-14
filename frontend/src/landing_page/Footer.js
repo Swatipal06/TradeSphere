@@ -32,15 +32,15 @@ function Footer() {
                     </div>
                     <div className="col">
                         <p>Support</p>
-                        <a href="">Contact</a>
+                        <a href="/support">Contact</a>
                         <br />
-                        <a href="">Support portal</a>
+                        <a href="/support">Support portal</a>
                         <br />
-                        <a href="">Z-Connect blog</a>
+                        <a href="#blog">TradeSphere Connect blog</a>
                         <br />
-                        <a href="">List of charges</a>
+                        <a href="/pricing">List of charges</a>
                         <br />
-                        <a href="">Downloads & resources</a>
+                        <a href="#downloads">Downloads & resources</a>
                         <br />
                     </div>
                     <div className="col">

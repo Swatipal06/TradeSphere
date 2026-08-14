@@ -1,77 +1,56 @@
 import React, { useState, useContext } from "react";
-
-import axios from "axios";
-
 import GeneralContext from "./GeneralContext";
-
 import { Tooltip, Grow } from "@mui/material";
-
 import {
     BarChartOutlined,
     KeyboardArrowDown,
     KeyboardArrowUp,
     MoreHoriz,
 } from "@mui/icons-material";
-
 import { watchlist } from "../data/data";
 import { DoughnutChart } from "./DoughnoutChart";
 
-const labels = watchlist.map((subArray) => subArray["name"]);
-
 const WatchList = () => {
+    const [searchTerm, setSearchTerm] = useState("");
+
+    const filteredWatchlist = watchlist.filter((stock) =>
+        stock.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    const labels = filteredWatchlist.map((subArray) => subArray.name);
+
     const data = {
         labels,
         datasets: [
             {
-                label: "Price",
-                data: watchlist.map((stock) => stock.price),
+                label: "Price (₹)",
+                data: filteredWatchlist.map((stock) => stock.price),
                 backgroundColor: [
-                    "rgba(255, 99, 132, 0.5)",
-                    "rgba(54, 162, 235, 0.5)",
-                    "rgba(255, 206, 86, 0.5)",
-                    "rgba(75, 192, 192, 0.5)",
-                    "rgba(153, 102, 255, 0.5)",
-                    "rgba(255, 159, 64, 0.5)",
+                    "rgba(37, 99, 235, 0.6)",
+                    "rgba(16, 185, 129, 0.6)",
+                    "rgba(245, 158, 11, 0.6)",
+                    "rgba(239, 68, 68, 0.6)",
+                    "rgba(139, 92, 246, 0.6)",
+                    "rgba(14, 165, 233, 0.6)",
+                    "rgba(236, 72, 153, 0.6)",
+                    "rgba(100, 116, 139, 0.6)",
+                    "rgba(20, 184, 166, 0.6)",
                 ],
                 borderColor: [
-                    "rgba(255, 99, 132, 1)",
-                    "rgba(54, 162, 235, 1)",
-                    "rgba(255, 206, 86, 1)",
-                    "rgba(75, 192, 192, 1)",
-                    "rgba(153, 102, 255, 1)",
-                    "rgba(255, 159, 64, 1)",
+                    "rgba(37, 99, 235, 1)",
+                    "rgba(16, 185, 129, 1)",
+                    "rgba(245, 158, 11, 1)",
+                    "rgba(239, 68, 68, 1)",
+                    "rgba(139, 92, 246, 1)",
+                    "rgba(14, 165, 233, 1)",
+                    "rgba(236, 72, 153, 1)",
+                    "rgba(100, 116, 139, 1)",
+                    "rgba(20, 184, 166, 1)",
                 ],
-                borderWidth: 1,
+                borderWidth: 1.5,
             },
         ],
     };
-
-    // export const data = {
-    //   labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    // datasets: [
-    //   {
-    //     label: "# of Votes",
-    //     data: [12, 19, 3, 5, 2, 3],
-    //     backgroundColor: [
-    //       "rgba(255, 99, 132, 0.2)",
-    //       "rgba(54, 162, 235, 0.2)",
-    //       "rgba(255, 206, 86, 0.2)",
-    //       "rgba(75, 192, 192, 0.2)",
-    //       "rgba(153, 102, 255, 0.2)",
-    //       "rgba(255, 159, 64, 0.2)",
-    //     ],
-    //     borderColor: [
-    //       "rgba(255, 99, 132, 1)",
-    //       "rgba(54, 162, 235, 1)",
-    //       "rgba(255, 206, 86, 1)",
-    //       "rgba(75, 192, 192, 1)",
-    //       "rgba(153, 102, 255, 1)",
-    //       "rgba(255, 159, 64, 1)",
-    //     ],
-    //     borderWidth: 1,
-    //   },
-    // ],
-    // };
 
     return (
         <div className="watchlist-container">
@@ -80,19 +59,29 @@ const WatchList = () => {
                     type="text"
                     name="search"
                     id="search"
-                    placeholder="Search eg:infy, bse, nifty fut weekly, gold mcx"
+                    placeholder="Search eg: infy, rel, tcs, sbin..."
                     className="search"
+                    value={searchTerm}
+                    onChange={(e) => setSearchTerm(e.target.value)}
                 />
-                <span className="counts"> {watchlist.length} / 50</span>
+                <span className="counts">{filteredWatchlist.length} / {watchlist.length}</span>
             </div>
 
             <ul className="list">
-                {watchlist.map((stock, index) => {
-                    return <WatchListItem stock={stock} key={index} />;
-                })}
+                {filteredWatchlist.length > 0 ? (
+                    filteredWatchlist.map((stock, index) => {
+                        return <WatchListItem stock={stock} key={index} />;
+                    })
+                ) : (
+                    <li style={{ padding: "16px", color: "#94a3b8", textAlign: "center" }}>
+                        No instruments match "{searchTerm}"
+                    </li>
+                )}
             </ul>
 
-            <DoughnutChart data={data} />
+            <div style={{ padding: "20px 10px" }}>
+                <DoughnutChart data={data} />
+            </div>
         </div>
     );
 };
@@ -102,16 +91,11 @@ export default WatchList;
 const WatchListItem = ({ stock }) => {
     const [showWatchlistActions, setShowWatchlistActions] = useState(false);
 
-    const handleMouseEnter = (e) => {
-        setShowWatchlistActions(true);
-    };
-
-    const handleMouseLeave = (e) => {
-        setShowWatchlistActions(false);
-    };
-
     return (
-        <li onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <li
+            onMouseEnter={() => setShowWatchlistActions(true)}
+            onMouseLeave={() => setShowWatchlistActions(false)}
+        >
             <div className="item">
                 <p className={stock.isDown ? "down" : "up"}>{stock.name}</p>
                 <div className="itemInfo">
@@ -119,21 +103,25 @@ const WatchListItem = ({ stock }) => {
                     {stock.isDown ? (
                         <KeyboardArrowDown className="down" />
                     ) : (
-                        <KeyboardArrowUp className="down" />
+                        <KeyboardArrowUp className="up" />
                     )}
-                    <span className="price">{stock.price}</span>
+                    <span className="price">₹{stock.price.toFixed(2)}</span>
                 </div>
             </div>
-            {showWatchlistActions && <WatchListActions uid={stock.name} />}
+            {showWatchlistActions && <WatchListActions stock={stock} />}
         </li>
     );
 };
 
-const WatchListActions = ({ uid }) => {
+const WatchListActions = ({ stock }) => {
     const generalContext = useContext(GeneralContext);
 
     const handleBuyClick = () => {
-        generalContext.openBuyWindow(uid);
+        generalContext.openBuyWindow(stock.name, stock.price);
+    };
+
+    const handleSellClick = () => {
+        generalContext.openSellWindow(stock.name, stock.price);
     };
 
     return (
@@ -144,9 +132,8 @@ const WatchListActions = ({ uid }) => {
                     placement="top"
                     arrow
                     TransitionComponent={Grow}
-                    onClick={handleBuyClick}
                 >
-                    <button className="buy">Buy</button>
+                    <button className="buy" onClick={handleBuyClick}>Buy</button>
                 </Tooltip>
                 <Tooltip
                     title="Sell (S)"
@@ -154,7 +141,7 @@ const WatchListActions = ({ uid }) => {
                     arrow
                     TransitionComponent={Grow}
                 >
-                    <button className="sell">Sell</button>
+                    <button className="sell" onClick={handleSellClick}>Sell</button>
                 </Tooltip>
                 <Tooltip
                     title="Analytics (A)"
@@ -162,7 +149,7 @@ const WatchListActions = ({ uid }) => {
                     arrow
                     TransitionComponent={Grow}
                 >
-                    <button className="action">
+                    <button className="action" onClick={handleBuyClick}>
                         <BarChartOutlined className="icon" />
                     </button>
                 </Tooltip>

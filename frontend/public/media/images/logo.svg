@@ -1,16 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 60" width="100%" height="100%">
   <defs>
-    <linearGradient id="tsGradDash" x1="0%" y1="0%" x2="100%" y2="100%">
+    <linearGradient id="tsGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#2563EB" />
       <stop offset="50%" stop-color="#3B82F6" />
       <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+    <linearGradient id="orbGlow" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#1D4ED8" />
+      <stop offset="100%" stop-color="#60A5FA" />
     </linearGradient>
   </defs>
 
   <!-- Logo Mark: Modern Sphere with Orbit & Growth Surge -->
   <g transform="translate(10, 6)">
     <!-- Base Sphere -->
-    <circle cx="24" cy="24" r="22" fill="url(#tsGradDash)" />
+    <circle cx="24" cy="24" r="22" fill="url(#tsGrad)" />
     <!-- Dynamic Orbit Ring -->
     <ellipse cx="24" cy="24" rx="22" ry="9" fill="none" stroke="#FFFFFF" stroke-width="2.5" transform="rotate(-30 24 24)" stroke-dasharray="80 15" opacity="0.95" />
     <!-- Upward Trend Line inside Sphere -->
