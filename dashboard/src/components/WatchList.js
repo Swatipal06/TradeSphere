@@ -9,9 +9,11 @@ import {
 } from "@mui/icons-material";
 import { watchlist } from "../data/data";
 import { DoughnutChart } from "./DoughnoutChart";
+import StockNewsModal from "./StockNewsModal";
 
 const WatchList = () => {
     const [searchTerm, setSearchTerm] = useState("");
+    const [selectedStockForNews, setSelectedStockForNews] = useState(null);
 
     const filteredWatchlist = watchlist.filter((stock) =>
         stock.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -70,7 +72,13 @@ const WatchList = () => {
             <ul className="list">
                 {filteredWatchlist.length > 0 ? (
                     filteredWatchlist.map((stock, index) => {
-                        return <WatchListItem stock={stock} key={index} />;
+                        return (
+                            <WatchListItem
+                                stock={stock}
+                                key={index}
+                                onOpenNews={(s) => setSelectedStockForNews(s)}
+                            />
+                        );
                     })
                 ) : (
                     <li style={{ padding: "16px", color: "#94a3b8", textAlign: "center" }}>
@@ -82,13 +90,22 @@ const WatchList = () => {
             <div style={{ padding: "20px 10px" }}>
                 <DoughnutChart data={data} />
             </div>
+
+            {selectedStockForNews && (
+                <StockNewsModal
+                    symbol={selectedStockForNews.name}
+                    price={selectedStockForNews.price}
+                    isOpen={Boolean(selectedStockForNews)}
+                    onClose={() => setSelectedStockForNews(null)}
+                />
+            )}
         </div>
     );
 };
 
 export default WatchList;
 
-const WatchListItem = ({ stock }) => {
+const WatchListItem = ({ stock, onOpenNews }) => {
     const [showWatchlistActions, setShowWatchlistActions] = useState(false);
 
     return (
@@ -108,12 +125,14 @@ const WatchListItem = ({ stock }) => {
                     <span className="price">₹{stock.price.toFixed(2)}</span>
                 </div>
             </div>
-            {showWatchlistActions && <WatchListActions stock={stock} />}
+            {showWatchlistActions && (
+                <WatchListActions stock={stock} onOpenNews={onOpenNews} />
+            )}
         </li>
     );
 };
 
-const WatchListActions = ({ stock }) => {
+const WatchListActions = ({ stock, onOpenNews }) => {
     const generalContext = useContext(GeneralContext);
 
     const handleBuyClick = () => {
@@ -142,6 +161,21 @@ const WatchListActions = ({ stock }) => {
                     TransitionComponent={Grow}
                 >
                     <button className="sell" onClick={handleSellClick}>Sell</button>
+                </Tooltip>
+                <Tooltip
+                    title="AI News Intelligence"
+                    placement="top"
+                    arrow
+                    TransitionComponent={Grow}
+                >
+                    <button
+                        className="action"
+                        onClick={() => onOpenNews(stock)}
+                        title="AI News Intelligence"
+                        style={{ fontSize: "0.85rem" }}
+                    >
+                        📰
+                    </button>
                 </Tooltip>
                 <Tooltip
                     title="Analytics (A)"

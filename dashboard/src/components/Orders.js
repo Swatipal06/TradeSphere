@@ -65,6 +65,7 @@ const Orders = () => {
                                 <th>Qty.</th>
                                 <th>Price (₹)</th>
                                 <th>Status</th>
+                                <th>AI Coach</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -77,7 +78,7 @@ const Orders = () => {
                                 return (
                                     <tr key={order._id || index}>
                                         <td style={{ color: "#64748b", fontSize: "0.85rem" }}>
-                                            {formattedTime}
+                                             {formattedTime}
                                         </td>
                                         <td>
                                             <span
@@ -111,6 +112,24 @@ const Orders = () => {
                                             >
                                                 ● {order.status || "COMPLETE"}
                                             </span>
+                                        </td>
+                                        <td>
+                                            <Link
+                                                to="/coach"
+                                                style={{
+                                                    padding: "3px 8px",
+                                                    fontSize: "0.75rem",
+                                                    background: "#eff6ff",
+                                                    color: "#2563eb",
+                                                    border: "1px solid #bfdbfe",
+                                                    borderRadius: "4px",
+                                                    textDecoration: "none",
+                                                    fontWeight: "600",
+                                                    display: "inline-block",
+                                                }}
+                                            >
+                                                🧠 Coach Review
+                                            </Link>
                                         </td>
                                     </tr>
                                 );

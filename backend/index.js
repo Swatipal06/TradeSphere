@@ -17,6 +17,8 @@ const { PositionsModel } = require("./model/PositionsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 const { UserModel } = require("./model/UserModel");
 const { authMiddleware } = require("./middleware/authMiddleware");
+const newsRoutes = require("./routes/newsRoutes");
+const coachRoutes = require("./routes/coachRoutes");
 
 const PORT = process.env.PORT || 3002;
 const uri = process.env.MONGO_URL;
@@ -49,6 +51,10 @@ app.use(
 );
 
 app.use(bodyParser.json());
+
+// ─── AI News & Trade Coach Routes ───────────────────────────────────────────
+app.use("/api/news", newsRoutes);
+app.use("/api/coach", coachRoutes);
 
 // ─── Helper ──────────────────────────────────────────────────────────────────
 

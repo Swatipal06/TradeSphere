@@ -68,6 +68,20 @@ const Menu = () => {
                             </p>
                         </Link>
                     </li>
+                    <li>
+                        <Link style={{ textDecoration: "none" }} to="/news">
+                            <p className={isSelected("/news") ? activeMenuClass : menuClass}>
+                                📰 AI News
+                            </p>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link style={{ textDecoration: "none" }} to="/coach">
+                            <p className={isSelected("/coach") ? activeMenuClass : menuClass}>
+                                🧠 Trade Coach
+                            </p>
+                        </Link>
+                    </li>
                 </ul>
 
                 <hr style={{ margin: "0 15px", borderColor: "#e2e8f0" }} />
