@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import api from "../utils/api";
 import AIInsightBadge from "./AIInsightBadge";
 
@@ -211,7 +211,7 @@ export const StockNewsModal = ({ symbol, price, isOpen, onClose }) => {
                   </div>
 
                   <div style={{ fontSize: "0.78rem", color: "#64748b", marginTop: "4px" }}>
-                    {item.source} • {new Date(item.publishedAt).toLocaleDateString()}
+                    {item.source}  {new Date(item.publishedAt).toLocaleDateString()}
                   </div>
 
                   {item.analysis ? (
@@ -243,7 +243,7 @@ export const StockNewsModal = ({ symbol, price, isOpen, onClose }) => {
                           fontWeight: "600",
                         }}
                       >
-                        {analyzingId === item._id ? "Analyzing..." : "⚡ Analyze"}
+                        {analyzingId === item._id ? "Analyzing..." : " Analyze"}
                       </button>
                     </div>
                   )}

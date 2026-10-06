@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+﻿import React, { useState, useContext } from "react";
 import GeneralContext from "./GeneralContext";
 import { Tooltip, Grow } from "@mui/material";
 import {
@@ -174,7 +174,7 @@ const WatchListActions = ({ stock, onOpenNews }) => {
                         title="AI News Intelligence"
                         style={{ fontSize: "0.85rem" }}
                     >
-                        📰
+                        
                     </button>
                 </Tooltip>
                 <Tooltip

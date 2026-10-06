@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+﻿import React, { useState, useEffect, useContext } from "react";
 import api from "../utils/api";
 import GeneralContext from "./GeneralContext";
 
@@ -50,7 +50,7 @@ const Summary = () => {
     return (
         <div style={{ padding: "20px 30px" }}>
             <div className="username" style={{ marginBottom: "24px" }}>
-                <h4 style={{ fontWeight: "700", color: "#1e293b" }}>Hi, Trader! 👋</h4>
+                <h4 style={{ fontWeight: "700", color: "#1e293b" }}>Hi, Trader! </h4>
                 <p style={{ color: "#64748b", margin: 0, fontSize: "0.9rem" }}>
                     Welcome to your TradeSphere Paper Trading Terminal
                 </p>

@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -60,7 +60,7 @@ function Navbar() {
                                 target="_blank"
                                 rel="noreferrer"
                             >
-                                Open Dashboard 🚀
+                                Open Dashboard 
                             </a>
                         </li>
                     </ul>

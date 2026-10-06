@@ -79,7 +79,7 @@ export const NewsCard = ({ article, onAnalysisGenerated }) => {
             <span>
               Impact: <strong>{analysis.impact || "Medium"}</strong>
             </span>
-            <span>•</span>
+            <span></span>
             <span>
               Time Horizon: <strong>{analysis.timeHorizon || "Short Term"}</strong>
             </span>
@@ -100,7 +100,7 @@ export const NewsCard = ({ article, onAnalysisGenerated }) => {
               <ul className="ai-factors-list">
                 {analysis.keyFactors.map((factor, idx) => (
                   <li key={idx} className="ai-factor-pill">
-                    • {factor}
+                     {factor}
                   </li>
                 ))}
               </ul>
@@ -115,7 +115,7 @@ export const NewsCard = ({ article, onAnalysisGenerated }) => {
             rel="noopener noreferrer"
             style={{ fontSize: "0.82rem", color: "#2563eb", textDecoration: "none", fontWeight: 500 }}
           >
-            Read Source Article ↗
+            Read Source Article 
           </a>
           <button
             className="ai-btn-secondary"
@@ -123,7 +123,7 @@ export const NewsCard = ({ article, onAnalysisGenerated }) => {
             disabled={loading}
             style={{ fontSize: "0.8rem", padding: "5px 12px" }}
           >
-            {loading ? "Analyzing News..." : "⚡ Generate AI Insight"}
+            {loading ? "Analyzing News..." : " Generate AI Insight"}
           </button>
         </div>
       )}

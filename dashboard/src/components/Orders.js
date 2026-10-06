@@ -45,7 +45,7 @@ const Orders = () => {
                         color: "#475569",
                     }}
                 >
-                    🔄 Refresh
+                     Refresh
                 </button>
             </div>
 
@@ -110,7 +110,7 @@ const Orders = () => {
                                                     fontSize: "0.85rem",
                                                 }}
                                             >
-                                                ● {order.status || "COMPLETE"}
+                                                 {order.status || "COMPLETE"}
                                             </span>
                                         </td>
                                         <td>
@@ -128,7 +128,7 @@ const Orders = () => {
                                                     display: "inline-block",
                                                 }}
                                             >
-                                                🧠 Coach Review
+                                                 Coach Review
                                             </Link>
                                         </td>
                                     </tr>

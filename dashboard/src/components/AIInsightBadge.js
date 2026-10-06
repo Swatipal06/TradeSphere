@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 export const AIInsightBadge = ({ direction = "Neutral", confidence = 0, size = "normal" }) => {
   const dirUpper = (direction || "NEUTRAL").toUpperCase();
@@ -6,16 +6,16 @@ export const AIInsightBadge = ({ direction = "Neutral", confidence = 0, size = "
   const isBearish = dirUpper === "BEARISH";
 
   let badgeClass = "badge-neutral";
-  let icon = "⚪";
+  let icon = "";
   let label = "Neutral";
 
   if (isBullish) {
     badgeClass = "badge-bullish";
-    icon = "🟢";
+    icon = "";
     label = "Bullish";
   } else if (isBearish) {
     badgeClass = "badge-bearish";
-    icon = "🔴";
+    icon = "";
     label = "Bearish";
   }
 
@@ -29,7 +29,7 @@ export const AIInsightBadge = ({ direction = "Neutral", confidence = 0, size = "
     >
       <span>{icon}</span>
       <span>{label}</span>
-      {confidence > 0 && <span style={{ opacity: 0.85, fontWeight: "600" }}>• {confidence}%</span>}
+      {confidence > 0 && <span style={{ opacity: 0.85, fontWeight: "600" }}> {confidence}%</span>}
     </span>
   );
 };

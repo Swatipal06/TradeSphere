@@ -52,7 +52,7 @@ const Login = ({ onLoginSuccess }) => {
       <div style={styles.card}>
         {/* Logo / Brand */}
         <div style={styles.brandRow}>
-          <span style={styles.brandDot}>●</span>
+          <span style={styles.brandDot}></span>
           <span style={styles.brandName}>TradeSphere</span>
         </div>
 

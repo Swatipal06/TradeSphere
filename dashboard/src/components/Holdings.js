@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+﻿import React, { useState, useEffect, useContext } from "react";
 import api from "../utils/api";
 import { VerticalGraph } from "./VerticalGraph";
 import GeneralContext from "./GeneralContext";
@@ -78,7 +78,7 @@ const Holdings = () => {
                         color: "#475569",
                     }}
                 >
-                    🔄 Refresh
+                     Refresh
                 </button>
             </div>
 

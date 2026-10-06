@@ -28,7 +28,7 @@ function Hero() {
                         rel="noreferrer"
                         className="btn btn-outline-dark btn-lg px-4 fw-semibold"
                     >
-                        Live Trading Dashboard →
+                        Live Trading Dashboard 
                     </a>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import api from "../utils/api";
 import "./AiFeatures.css";
 
@@ -61,20 +61,20 @@ const TradeCoach = () => {
     if (val === "GOOD") {
       return (
         <span className="badge-bullish" style={{ fontSize: "0.82rem", padding: "4px 10px" }}>
-          🟢 Good Trade
+           Good Trade
         </span>
       );
     }
     if (val === "AVERAGE") {
       return (
         <span className="badge-neutral" style={{ fontSize: "0.82rem", padding: "4px 10px" }}>
-          🟡 Average Trade
+           Average Trade
         </span>
       );
     }
     return (
       <span className="badge-bearish" style={{ fontSize: "0.82rem", padding: "4px 10px" }}>
-        🔴 Needs Improvement
+         Needs Improvement
       </span>
     );
   };
@@ -85,7 +85,7 @@ const TradeCoach = () => {
       <div className="ai-header-container">
         <div>
           <h3 className="ai-page-title">
-            <span>🧠 AI Trade Coach</span>
+            <span> AI Trade Coach</span>
           </h3>
           <p className="ai-page-subtitle">
             Understand why your trades worked or failed — learn discipline, risk exposure, and news catalyst alignment.
@@ -93,13 +93,13 @@ const TradeCoach = () => {
         </div>
 
         <button className="ai-btn-secondary" onClick={fetchTrades}>
-          🔄 Refresh Trades
+           Refresh Trades
         </button>
       </div>
 
       {/* Safety Disclaimer */}
       <div className="ai-disclaimer-banner">
-        <span>🎓</span>
+        <span></span>
         <div>
           <strong>Educational Coach Notice:</strong> AI Trade Coach reviews executed trades to highlight risk management and sizing lessons. It is designed for post-trade educational self-reflection.
         </div>
@@ -142,13 +142,13 @@ const TradeCoach = () => {
       {/* Content Area */}
       {loading ? (
         <div className="state-container">
-          <div className="state-icon">🤖</div>
+          <div className="state-icon"></div>
           <div className="state-title">Loading Trade History...</div>
           <p className="state-desc">Retrieving your executed virtual trades and coaching reviews.</p>
         </div>
       ) : error ? (
         <div className="state-container">
-          <div className="state-icon">⚠️</div>
+          <div className="state-icon"></div>
           <div className="state-title">Error Loading Trades</div>
           <p className="state-desc">{error}</p>
           <button className="ai-btn-primary" onClick={fetchTrades}>
@@ -189,7 +189,7 @@ const TradeCoach = () => {
                         color: isBuy ? "#1d4ed8" : "#c2410c",
                       }}
                     >
-                      {trade.mode || "BUY"} • {trade.qty} shares
+                      {trade.mode || "BUY"}  {trade.qty} shares
                     </span>
                     <span style={{ fontSize: "0.8rem", color: "#64748b" }}>
                       Executed: {formattedTime}
@@ -239,7 +239,7 @@ const TradeCoach = () => {
                     {/* Connected RSS News Context (Part 3) */}
                     {analysis.newsContext && analysis.newsContext.headline && (
                       <div className="news-context-banner">
-                        <span>📰</span>
+                        <span></span>
                         <div>
                           <strong>Market News Context at Entry:</strong>{" "}
                           <span
@@ -269,7 +269,7 @@ const TradeCoach = () => {
                     <div className="coach-grid-feedback">
                       {/* What Went Well */}
                       <div className="coach-feedback-col success">
-                        <h5>✓ What Went Well</h5>
+                        <h5> What Went Well</h5>
                         <ul className="coach-feedback-list">
                           {analysis.whatWentWell &&
                             analysis.whatWentWell.map((pt, i) => <li key={i}>{pt}</li>)}
@@ -278,7 +278,7 @@ const TradeCoach = () => {
 
                       {/* Potential Risks */}
                       <div className="coach-feedback-col warning">
-                        <h5>⚠️ Potential Risks</h5>
+                        <h5> Potential Risks</h5>
                         <ul className="coach-feedback-list">
                           {analysis.risks && analysis.risks.map((pt, i) => <li key={i}>{pt}</li>)}
                         </ul>
@@ -286,7 +286,7 @@ const TradeCoach = () => {
 
                       {/* What Could Improve */}
                       <div className="coach-feedback-col improve">
-                        <h5>💡 What Could Improve</h5>
+                        <h5> What Could Improve</h5>
                         <ul className="coach-feedback-list">
                           {analysis.whatCouldImprove &&
                             analysis.whatCouldImprove.map((pt, i) => <li key={i}>{pt}</li>)}
@@ -313,7 +313,7 @@ const TradeCoach = () => {
                       disabled={analyzingId === trade._id}
                       style={{ fontSize: "0.82rem", padding: "6px 14px" }}
                     >
-                      {analyzingId === trade._id ? "Analyzing Trade Decisions..." : "🧠 Analyze Trade with Coach"}
+                      {analyzingId === trade._id ? "Analyzing Trade Decisions..." : " Analyze Trade with Coach"}
                     </button>
                   </div>
                 )}
@@ -323,7 +323,7 @@ const TradeCoach = () => {
         </div>
       ) : (
         <div className="state-container">
-          <div className="state-icon">📋</div>
+          <div className="state-icon"></div>
           <div className="state-title">No Orders Found</div>
           <p className="state-desc">
             {filterMode !== "ALL"

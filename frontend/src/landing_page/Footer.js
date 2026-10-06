@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
@@ -23,11 +23,11 @@ function Footer() {
                             <a href="https://github.com/Swatipal06" target="_blank" rel="noreferrer" className="text-muted text-decoration-none small">
                                 GitHub
                             </a>
-                            <span>•</span>
+                            <span></span>
                             <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-muted text-decoration-none small">
                                 LinkedIn
                             </a>
-                            <span>•</span>
+                            <span></span>
                             <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-muted text-decoration-none small">
                                 Twitter
                             </a>

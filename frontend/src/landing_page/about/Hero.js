@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 function Hero() {
     return (
@@ -38,7 +38,7 @@ function Hero() {
                 <div className="col-md-6">
                     <div className="card h-100 border-0 shadow-sm rounded-4 p-4 p-lg-5">
                         <div className="d-flex align-items-center gap-3 mb-3">
-                            <div className="bg-primary text-white rounded-3 p-2 px-3 fw-bold fs-4">⚡</div>
+                            <div className="bg-primary text-white rounded-3 p-2 px-3 fw-bold fs-4"></div>
                             <h2 className="fs-3 fw-bold text-dark mb-0">What drives us</h2>
                         </div>
                         <p className="text-muted" style={{ lineHeight: "1.8" }}>
@@ -47,19 +47,19 @@ function Hero() {
                         </p>
                         <ul className="list-unstyled mt-3 d-flex flex-column gap-2">
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Simple and intuitive user experience
+                                <span className="text-primary fw-bold"></span> Simple and intuitive user experience
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Transparent pricing
+                                <span className="text-primary fw-bold"></span> Transparent pricing
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Fast and reliable technology
+                                <span className="text-primary fw-bold"></span> Fast and reliable technology
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Secure trading infrastructure
+                                <span className="text-primary fw-bold"></span> Secure trading infrastructure
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Investor-first approach
+                                <span className="text-primary fw-bold"></span> Investor-first approach
                             </li>
                         </ul>
                         <p className="text-muted mt-3 mb-0 small" style={{ lineHeight: "1.7" }}>
@@ -72,7 +72,7 @@ function Hero() {
                 <div className="col-md-6">
                     <div className="card h-100 border-0 shadow-sm rounded-4 p-4 p-lg-5">
                         <div className="d-flex align-items-center gap-3 mb-3">
-                            <div className="bg-primary text-white rounded-3 p-2 px-3 fw-bold fs-4">💻</div>
+                            <div className="bg-primary text-white rounded-3 p-2 px-3 fw-bold fs-4"></div>
                             <h2 className="fs-3 fw-bold text-dark mb-0">Technology at our core</h2>
                         </div>
                         <p className="text-muted" style={{ lineHeight: "1.8" }}>
@@ -80,22 +80,22 @@ function Hero() {
                         </p>
                         <ul className="list-unstyled mt-3 d-flex flex-column gap-2">
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Real-time market data
+                                <span className="text-primary fw-bold"></span> Real-time market data
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Smooth order execution
+                                <span className="text-primary fw-bold"></span> Smooth order execution
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Responsive dashboards
+                                <span className="text-primary fw-bold"></span> Responsive dashboards
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Portfolio tracking
+                                <span className="text-primary fw-bold"></span> Portfolio tracking
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Watchlists and analytics
+                                <span className="text-primary fw-bold"></span> Watchlists and analytics
                             </li>
                             <li className="d-flex align-items-center gap-2 text-secondary">
-                                <span className="text-primary fw-bold">✓</span> Educational insights for smarter decisions
+                                <span className="text-primary fw-bold"></span> Educational insights for smarter decisions
                             </li>
                         </ul>
                         <p className="text-muted mt-3 mb-0 small" style={{ lineHeight: "1.7" }}>
@@ -110,7 +110,7 @@ function Hero() {
                 <div className="col-lg-12">
                     <div className="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white">
                         <div className="d-flex align-items-center gap-3 mb-3">
-                            <div className="bg-success text-white rounded-3 p-2 px-3 fw-bold fs-4">📚</div>
+                            <div className="bg-success text-white rounded-3 p-2 px-3 fw-bold fs-4"></div>
                             <h2 className="fs-3 fw-bold text-dark mb-0">Empowering investors through education</h2>
                         </div>
                         <p className="text-secondary fs-5" style={{ lineHeight: "1.8" }}>
@@ -126,7 +126,7 @@ function Hero() {
             <div className="row g-4 mb-5">
                 <div className="col-md-6">
                     <div className="card h-100 border-0 shadow-sm rounded-4 p-4 p-lg-5 text-white" style={{ background: "linear-gradient(135deg, #1e40af 0%, #3b82f6 100%)" }}>
-                        <h3 className="fs-4 fw-bold mb-3">🎯 Our mission</h3>
+                        <h3 className="fs-4 fw-bold mb-3"> Our mission</h3>
                         <p className="fs-5 mb-0" style={{ lineHeight: "1.8", opacity: "0.95" }}>
                             To build a transparent and technology-led financial platform that enables millions of people to participate confidently in the capital markets.
                         </p>
@@ -134,7 +134,7 @@ function Hero() {
                 </div>
                 <div className="col-md-6">
                     <div className="card h-100 border-0 shadow-sm rounded-4 p-4 p-lg-5 text-white" style={{ background: "linear-gradient(135deg, #0f172a 0%, #334155 100%)" }}>
-                        <h3 className="fs-4 fw-bold mb-3">👁️ Our vision</h3>
+                        <h3 className="fs-4 fw-bold mb-3"> Our vision</h3>
                         <p className="fs-5 mb-0" style={{ lineHeight: "1.8", opacity: "0.95" }}>
                             To become one of the most trusted investing ecosystems by combining innovation, simplicity, and investor empowerment.
                         </p>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
@@ -71,14 +71,14 @@ const Menu = () => {
                     <li>
                         <Link style={{ textDecoration: "none" }} to="/news">
                             <p className={isSelected("/news") ? activeMenuClass : menuClass}>
-                                📰 AI News
+                                 AI News
                             </p>
                         </Link>
                     </li>
                     <li>
                         <Link style={{ textDecoration: "none" }} to="/coach">
                             <p className={isSelected("/coach") ? activeMenuClass : menuClass}>
-                                🧠 Trade Coach
+                                 Trade Coach
                             </p>
                         </Link>
                     </li>
@@ -118,7 +118,7 @@ const Menu = () => {
                                 <div style={{ fontSize: "0.8rem", color: "#64748b" }}>ID: TS-89421</div>
                                 <div style={{ marginTop: "6px" }}>
                                     <span style={{ fontSize: "0.75rem", background: "#dcfce7", color: "#166534", padding: "2px 6px", borderRadius: "4px", fontWeight: "600" }}>
-                                        ✓ KYC Simulated Verified
+                                         KYC Simulated Verified
                                     </span>
                                 </div>
                             </div>
@@ -130,7 +130,7 @@ const Menu = () => {
                                     rel="noreferrer"
                                     style={{ color: "#2563eb", textDecoration: "none", fontWeight: "500" }}
                                 >
-                                    🌐 TradeSphere Main Portal
+                                     TradeSphere Main Portal
                                 </a>
                                 <span style={{ color: "#475569" }}>Segment: Equity, F&O</span>
                                 <span style={{ color: "#475569" }}>Mode: Paper Trading (Risk-Free)</span>

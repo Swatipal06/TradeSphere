@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+﻿import React, { useState } from "react";
 
 const API_BASE_URL = process.env.REACT_APP_API_URL || "http://localhost:3002";
 const DASHBOARD_URL = process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001";
@@ -225,7 +225,7 @@ function Signup() {
                                 onClick={handleDemoLogin}
                                 className="btn btn-outline-success btn-lg fw-semibold"
                             >
-                                ⚡ Launch Instant Demo Mode
+                                 Launch Instant Demo Mode
                             </button>
                         </div>
 

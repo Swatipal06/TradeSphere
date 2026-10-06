@@ -6,42 +6,42 @@ const Apps = () => {
             title: "TradeSphere Connect API",
             tag: "Developer & Algo",
             desc: "Build automated trading platforms, algorithmic execution bots, and custom portfolio tracking apps with simple REST/WebSocket APIs.",
-            icon: "⚡",
+            icon: "",
             status: "Connected",
         },
         {
             title: "Sensibull",
             tag: "Options & Derivatives",
             desc: "India's largest options trading platform. Create custom option payoff strategies, analyze Greeks, and manage multi-leg positions.",
-            icon: "📊",
+            icon: "",
             status: "Launch App",
         },
         {
             title: "Streak",
             tag: "Systematic Algo Trading",
             desc: "Create, backtest on historical ticks, and deploy trading strategies across equities and futures with zero coding required.",
-            icon: "🎯",
+            icon: "",
             status: "Launch App",
         },
         {
             title: "Smallcase",
             tag: "Thematic Portfolios",
             desc: "Invest in diversified ideas and models built by SEBI-registered professionals — Clean Energy, Top 100 Tech, Dividends, and more.",
-            icon: "💼",
+            icon: "",
             status: "Explore Baskets",
         },
         {
             title: "TradingView Terminal",
             tag: "Technical Analysis",
             desc: "Over 100+ technical indicators, candlestick pattern detection, multi-timeframe overlays, and live order execution from chart pins.",
-            icon: "📈",
+            icon: "",
             status: "Integrated",
         },
         {
             title: "Sentinel",
             tag: "Cloud Triggers & Alerts",
             desc: "Set advanced conditional alerts on price, volume, and open interest. Receive instant push notifications across web and mobile.",
-            icon: "🔔",
+            icon: "",
             status: "Active",
         },
     ];
@@ -50,7 +50,7 @@ const Apps = () => {
         <div style={{ padding: "24px 32px" }}>
             <div style={{ marginBottom: "28px" }}>
                 <h3 style={{ fontSize: "1.6rem", fontWeight: "700", color: "#1e293b", margin: "0 0 6px 0" }}>
-                    TradeSphere Apps & Ecosystem 🚀
+                    TradeSphere Apps & Ecosystem 
                 </h3>
                 <p style={{ color: "#64748b", margin: 0, fontSize: "0.95rem" }}>
                     Supercharge your trading setup with integrated tools and fintech partner platforms.
@@ -117,7 +117,7 @@ const Apps = () => {
                                 }}
                                 onClick={() => alert(`${app.title} is fully integrated with your TradeSphere virtual account!`)}
                             >
-                                {app.status} →
+                                {app.status} 
                             </button>
                         </div>
                     </div>

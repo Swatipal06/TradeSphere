@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 
 function Team() {
     return (
@@ -58,7 +58,7 @@ function Team() {
                         </p>
                         <div>
                             <a href="/signup" className="btn btn-primary btn-lg px-4 rounded-pill fw-semibold">
-                                Join TradeSphere Today 🚀
+                                Join TradeSphere Today 
                             </a>
                         </div>
                     </div>

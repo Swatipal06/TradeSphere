@@ -1,4 +1,4 @@
-const Parser = require("rss-parser");
+﻿const Parser = require("rss-parser");
 const { NewsModel } = require("../model/NewsModel");
 const { identifyStock } = require("../utils/stockIdentifier");
 
