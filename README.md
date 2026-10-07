@@ -104,7 +104,7 @@ I wanted to go beyond basic CRUD tutorials and engineer a multi-application fint
 | Layer | Technologies | Description |
 |---|---|---|
 | **Frontend (Landing Page)** | React, Bootstrap 5, FontAwesome | Marketing pages, pricing, products, and signup portal |
-| **Dashboard (Trading Terminal)** | React 18, Chart.js, Axios, React Router 6 | Zerodha Kite-inspired trading terminal with AI News & Trade Coach |
+| **Dashboard (Trading Terminal)** | React 18, Material UI (MUI), Chart.js, Axios, React Router 6 | Zerodha Kite-inspired trading terminal with AI News & Trade Coach |
 | **Backend API** | Node.js, Express 5, JWT, bcrypt, rss-parser | RESTful microservice API with auth middleware & RSS ingestion |
 | **AI / Intelligence Engine** | Ollama, Local Financial NLP, JSON Schema | Free local LLM inference + fallback quantitative rules engine |
 | **Database** | MongoDB Atlas, Mongoose 9 | Document store with indexed user references, news, and AI insights |
