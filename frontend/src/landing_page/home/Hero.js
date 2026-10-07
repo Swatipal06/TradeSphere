@@ -23,7 +23,7 @@ function Hero() {
                         Sign up for Free
                     </Link>
                     <a
-                        href="http://localhost:3001"
+                        href={process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001"}
                         target="_blank"
                         rel="noreferrer"
                         className="btn btn-outline-dark btn-lg px-4 fw-semibold"

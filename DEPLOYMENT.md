@@ -61,6 +61,7 @@ This guide walks you through deploying the TradeSphere full-stack application (B
    - **Root Directory**: `dashboard`
    - **Environment Variables**:
      - `REACT_APP_API_URL` = `https://tradesphere-api.onrender.com`
+     - `REACT_APP_LANDING_URL` = `https://tradesphere-landing.vercel.app`
 3. Click **Deploy**.
 
 ---

@@ -1,4 +1,4 @@
-﻿import React from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -56,7 +56,7 @@ function Navbar() {
                         <li className="nav-item ms-lg-2">
                             <a
                                 className="btn btn-primary btn-sm px-3 fw-semibold shadow-sm"
-                                href="http://localhost:3001"
+                                href={process.env.REACT_APP_DASHBOARD_URL || "http://localhost:3001"}
                                 target="_blank"
                                 rel="noreferrer"
                             >

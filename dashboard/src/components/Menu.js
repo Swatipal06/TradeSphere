@@ -125,7 +125,7 @@ const Menu = () => {
 
                             <div style={{ padding: "10px 0", fontSize: "0.85rem", display: "flex", flexDirection: "column", gap: "8px" }}>
                                 <a
-                                    href="http://localhost:3000"
+                                    href={process.env.REACT_APP_LANDING_URL || "http://localhost:3000"}
                                     target="_blank"
                                     rel="noreferrer"
                                     style={{ color: "#2563eb", textDecoration: "none", fontWeight: "500" }}
@@ -140,7 +140,8 @@ const Menu = () => {
                                 <button
                                     onClick={() => {
                                         alert("Logged out of TradeSphere Session");
-                                        window.location.href = "http://localhost:3000/signup";
+                                        const landingUrl = process.env.REACT_APP_LANDING_URL || "http://localhost:3000";
+                                        window.location.href = `${landingUrl}/signup`;
                                     }}
                                     style={{
                                         width: "100%",
