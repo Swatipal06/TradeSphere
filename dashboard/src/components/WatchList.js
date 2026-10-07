@@ -1,4 +1,4 @@
-﻿import React, { useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import GeneralContext from "./GeneralContext";
 import { Tooltip, Grow } from "@mui/material";
 import {
@@ -6,6 +6,7 @@ import {
     KeyboardArrowDown,
     KeyboardArrowUp,
     MoreHoriz,
+    NewspaperOutlined,
 } from "@mui/icons-material";
 import { watchlist } from "../data/data";
 import { DoughnutChart } from "./DoughnoutChart";
@@ -172,9 +173,10 @@ const WatchListActions = ({ stock, onOpenNews }) => {
                         className="action"
                         onClick={() => onOpenNews(stock)}
                         title="AI News Intelligence"
+                        aria-label="AI News Intelligence"
                         style={{ fontSize: "0.85rem" }}
                     >
-                        
+                        <NewspaperOutlined className="icon" />
                     </button>
                 </Tooltip>
                 <Tooltip

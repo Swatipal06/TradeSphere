@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 const Menu = () => {
@@ -69,16 +69,16 @@ const Menu = () => {
                         </Link>
                     </li>
                     <li>
-                        <Link style={{ textDecoration: "none" }} to="/news">
-                            <p className={isSelected("/news") ? activeMenuClass : menuClass}>
-                                 AI News
+                        <Link style={{ textDecoration: "none" }} to="/coach">
+                            <p className={isSelected("/coach") ? activeMenuClass : menuClass}>
+                                 Trade Coach
                             </p>
                         </Link>
                     </li>
                     <li>
-                        <Link style={{ textDecoration: "none" }} to="/coach">
-                            <p className={isSelected("/coach") ? activeMenuClass : menuClass}>
-                                 Trade Coach
+                        <Link style={{ textDecoration: "none" }} to="/news">
+                            <p className={isSelected("/news") ? activeMenuClass : menuClass}>
+                                 Trade News
                             </p>
                         </Link>
                     </li>
