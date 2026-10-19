@@ -1,5 +1,8 @@
 # TradeSphere Deployment Guide 🚀
 
+> 🌐 **Live Production Application**: [https://trade-sphere-482b.vercel.app/](https://trade-sphere-482b.vercel.app/)  
+> 👩‍💻 **Author**: Swati Pal ([@Swatipal06](https://github.com/Swatipal06))
+
 This guide walks you through deploying the TradeSphere full-stack application (Backend, Frontend Landing Page, and Trading Dashboard).
 
 ---

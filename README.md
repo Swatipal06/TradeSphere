@@ -6,13 +6,14 @@ TradeSphere provides an end-to-end simulated stock trading experience — allowi
 
 TradeSphere features an **AI Financial News Intelligence Engine** (powered by financial RSS feeds and LLM/NLP analysis) and an **AI Trade Coach** that reviews past trades in the context of prevailing news sentiment, portfolio sizing, and risk management.
 
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-TradeSphere-0070f3?style=flat&logo=vercel)](https://trade-sphere-482b.vercel.app/)
 [![MERN Stack](https://img.shields.io/badge/Stack-MERN-brightgreen)](#-architecture--tech-stack)
 [![AI Intelligence](https://img.shields.io/badge/AI-News%20Intelligence%20%2B%20Trade%20Coach-purple)](#-ai-features)
 [![Authentication](https://img.shields.io/badge/Auth-JWT%20%2B%20bcrypt-blue)](#-key-features)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](#-license)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success)](#-future-roadmap)
 
-🔗 **[Live Demo](https://github.com/Swatipal06/TradeSphere)** &nbsp;•&nbsp; 🐛 **[Report a Bug](https://github.com/Swatipal06/TradeSphere/issues)** &nbsp;•&nbsp; ⭐ **[Star this repo](https://github.com/Swatipal06/TradeSphere)**
+🌐 **[Live Demo](https://trade-sphere-482b.vercel.app/)** &nbsp;•&nbsp; 🐙 **[GitHub Repo](https://github.com/Swatipal06/TradeSphere)** &nbsp;•&nbsp; 🐛 **[Report a Bug](https://github.com/Swatipal06/TradeSphere/issues)** &nbsp;•&nbsp; ⭐ **[Star this repo](https://github.com/Swatipal06/TradeSphere)**
 
 ---
 
@@ -310,7 +311,8 @@ Distributed under the MIT License. See [`LICENSE`](./LICENSE) for more informati
 ## 👩‍💻 Author
 
 **Swati Pal**
-- GitHub: [@Swatipal06](https://github.com/Swatipal06)
-- LinkedIn: [swati-pal06](https://linkedin.com/in/swati-pal06/)
+- 🌐 Live Application: [TradeSphere](https://trade-sphere-482b.vercel.app/)
+- 🐙 GitHub: [@Swatipal06](https://github.com/Swatipal06)
+- 💼 LinkedIn: [swati-pal06](https://linkedin.com/in/swati-pal06/)
 
 ⭐ **If you found this project helpful, please consider giving it a star on GitHub!**
