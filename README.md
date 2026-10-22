@@ -39,6 +39,35 @@ I wanted to go beyond basic CRUD tutorials and engineer a multi-application fint
 
 ---
 
+## 🚀 Key Features
+
+### 🔐 1. Real Authentication & Session Security
+- **Salted Password Hashing**: Passwords encrypted with `bcrypt` (12 salt rounds) before persistence.
+- **JWT Authorization**: Cryptographically signed 7-day tokens verified by backend `authMiddleware`.
+- **Axios Request Interceptor**: Automatic `Bearer <token>` injection for all secure requests.
+- **Global Auth Guard**: 401 Unauthorized interceptor that automatically wipes expired tokens and redirects to login.
+
+### 👤 2. Per-User Scoped Data Architecture
+- **Isolated User State**: All portfolio entities (`Holdings`, `Positions`, `Orders`, `TradeAnalysis`) are strictly linked to the authenticated user's `userId`.
+- **Integrated Virtual Capital**: User document manages personal margin metrics (`availableMargin`, `usedMargin`, `availableCash`, `payin`).
+- **Initial Capital**: Every new account starts with a virtual balance of **₹1,00,000**.
+
+### 💹 3. Robust Order Execution Engine
+- **Pre-Trade Balance Verification (BUY)**: Ensures `availableMargin >= quantity * price`. Rejects insufficient funds with HTTP `402 Payment Required`.
+- **Holding & Quantity Verification (SELL)**: Confirms the user holds the target stock with sufficient quantity. Rejects invalid sales with HTTP `409 Conflict`.
+- **Weighted Average Price Computation**: Automatically calculates and updates the weighted average buy price when acquiring additional shares of existing holdings.
+- **Atomic Margin Updates**: Automatically adjusts used/available margin on trade completion.
+- **Input Sanitization**: Rejects invalid stock names, zero or negative quantities, and negative prices with HTTP `400 Bad Request`.
+
+### 📊 4. Interactive Trading Dashboard (Kite UI)
+- **Live Market Watchlist**: Interactive stock list with live hover actions (**B** for Buy, **S** for Sell, **📰** for AI News).
+- **Simulated Market Fluctuations**: Dynamic live indices for **NIFTY 50** and **SENSEX**.
+- **Portfolio Analytics**: Visual distribution graphs, daily P&L, net percentage gains, and investment summaries.
+- **Funds Management**: Seamless virtual deposits and withdrawals with real-time margin adjustments.
+- **Orderbook**: Chronological order history with execution status badges and one-click AI Coach reviews.
+
+---
+
 ## 🤖 AI Features
 
 ### 📰 1. AI Financial News Intelligence (RSS + LLM)
@@ -71,34 +100,6 @@ I wanted to go beyond basic CRUD tutorials and engineer a multi-application fint
 
 ---
 
-## 🚀 Key Features
-
-### 🔐 1. Real Authentication & Session Security
-- **Salted Password Hashing**: Passwords encrypted with `bcrypt` (12 salt rounds) before persistence.
-- **JWT Authorization**: Cryptographically signed 7-day tokens verified by backend `authMiddleware`.
-- **Axios Request Interceptor**: Automatic `Bearer <token>` injection for all secure requests.
-- **Global Auth Guard**: 401 Unauthorized interceptor that automatically wipes expired tokens and redirects to login.
-
-### 👤 2. Per-User Scoped Data Architecture
-- **Isolated User State**: All portfolio entities (`Holdings`, `Positions`, `Orders`, `TradeAnalysis`) are strictly linked to the authenticated user's `userId`.
-- **Integrated Virtual Capital**: User document manages personal margin metrics (`availableMargin`, `usedMargin`, `availableCash`, `payin`).
-- **Initial Capital**: Every new account starts with a virtual balance of **₹1,00,000**.
-
-### 💹 3. Robust Order Execution Engine
-- **Pre-Trade Balance Verification (BUY)**: Ensures `availableMargin >= quantity * price`. Rejects insufficient funds with HTTP `402 Payment Required`.
-- **Holding & Quantity Verification (SELL)**: Confirms the user holds the target stock with sufficient quantity. Rejects invalid sales with HTTP `409 Conflict`.
-- **Weighted Average Price Computation**: Automatically calculates and updates the weighted average buy price when acquiring additional shares of existing holdings.
-- **Atomic Margin Updates**: Automatically adjusts used/available margin on trade completion.
-- **Input Sanitization**: Rejects invalid stock names, zero or negative quantities, and negative prices with HTTP `400 Bad Request`.
-
-### 📊 4. Interactive Trading Dashboard (Kite UI)
-- **Live Market Watchlist**: Interactive stock list with live hover actions (**B** for Buy, **S** for Sell, **📰** for AI News).
-- **Simulated Market Fluctuations**: Dynamic live indices for **NIFTY 50** and **SENSEX**.
-- **Portfolio Analytics**: Visual distribution graphs, daily P&L, net percentage gains, and investment summaries.
-- **Funds Management**: Seamless virtual deposits and withdrawals with real-time margin adjustments.
-- **Orderbook**: Chronological order history with execution status badges and one-click AI Coach reviews.
-
----
 
 ## 🛠️ Architecture & Tech Stack
 
